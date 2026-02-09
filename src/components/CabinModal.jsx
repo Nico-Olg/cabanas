@@ -44,6 +44,34 @@ const GrillIcon = () => (
     <path d="M12 12a8 8 0 00-8 8h16a8 8 0 00-8-8zM12 12V2M8 20l-2 2M16 20l2 2M8 6h8"/>
   </svg>
 );
+const FireplaceIcon = () => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M3 20h18M5 20V8l7-4 7 4v12"/>
+    <path d="M12 20v-6c-2 0-3 1.5-3 3s1 3 3 3zM12 14c2 0 3 1.5 3 3s-1 3-3 3"/>
+  </svg>
+);
+const HammockIcon = () => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M3 6l3 2M21 6l-3 2"/>
+    <path d="M6 8c0 6 4 8 6 8s6-2 6-8"/>
+    <path d="M2 22l4-14M22 22l-4-14"/>
+  </svg>
+);
+const SolarIcon = () => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <rect x="2" y="8" width="20" height="8" rx="1"/>
+    <path d="M6 8V6M10 8V6M14 8V6M18 8V6"/>
+    <circle cx="12" cy="3" r="1.5" fill="currentColor"/>
+    <path d="M12 16v4M8 20h8"/>
+  </svg>
+);
+const DeckIcon = () => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M2 18h20M4 18v-4h16v4"/>
+    <path d="M6 14V8M18 14V8M2 8h20"/>
+    <path d="M10 8V4M14 8V4"/>
+  </svg>
+);
 
 const CabinModal = ({ isOpen, onClose, cabinType }) => {
   const { t } = useTranslation();
@@ -55,7 +83,7 @@ const CabinModal = ({ isOpen, onClose, cabinType }) => {
       title: t('cabin_modal.small_title'),
       capacity: t('cabin_modal.small_capacity'),
       description: t('cabin_modal.small_desc'),
-      names: ['Cabernet Sauvignon', 'Marselan', 'Tannat', 'Viognier'],
+      names: ['Cabernet Sauvignon', 'Marselan', 'Tannat', 'Viognier', 'Malbec', 'Syrah'],
       images: [
         { gradient: 'linear-gradient(135deg, #6b4423 0%, #a0845c 50%, #d4b896 100%)', label: t('cabin_modal.img_exterior') },
         { gradient: 'linear-gradient(135deg, #8b6f47 0%, #c4a882 50%, #e8d5b7 100%)', label: t('cabin_modal.img_interior') },
@@ -94,14 +122,18 @@ const CabinModal = ({ isOpen, onClose, cabinType }) => {
   const cabin = cabinData[cabinType] || cabinData.small;
 
   const amenities = [
-    { icon: <WifiIcon />, label: t('cabins.amenity_wifi') },
-    { icon: <AcIcon />, label: t('cabins.amenity_ac') },
-    { icon: <TvIcon />, label: t('cabins.amenity_tv') },
-    { icon: <ParkingIcon />, label: t('cabins.amenity_parking') },
     { icon: <KitchenIcon />, label: t('cabins.amenity_kitchen') },
+    { icon: <AcIcon />, label: t('cabins.amenity_ac') },
+    { icon: <FireplaceIcon />, label: t('cabins.amenity_fireplace') },
+    { icon: <TvIcon />, label: t('cabins.amenity_tv') },
+    { icon: <SolarIcon />, label: t('cabins.amenity_solar') },
     { icon: <BedIcon />, label: t('cabins.amenity_bedding') },
     { icon: <BathIcon />, label: t('cabins.amenity_bathroom') },
     { icon: <GrillIcon />, label: t('cabins.amenity_grill') },
+    { icon: <DeckIcon />, label: t('cabins.amenity_deck') },
+    { icon: <HammockIcon />, label: t('cabins.amenity_hammocks') },
+    { icon: <WifiIcon />, label: t('cabins.amenity_wifi') },
+    { icon: <ParkingIcon />, label: t('cabins.amenity_parking') },
   ];
 
   // Reset image index when modal opens

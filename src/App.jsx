@@ -76,13 +76,13 @@ function App() {
         {/* 11. FAQ - resolver dudas antes de contactar */}
         <FAQ />
 
-        {/* 12. Postales del Viñedo - cross-sell */}
-        <PostalesBanner />
-
-        {/* 13. Contacto - conversion */}
+        {/* 12. Contacto - conversion */}
         <Contacto />
 
-        {/* 13. Footer */}
+        {/* 13. Postales del Viñedo - cross-sell (después del contacto para no generar fuga) */}
+        <PostalesBanner />
+
+        {/* 14. Footer */}
         <Footer />
 
         {/* WhatsApp FAB */}

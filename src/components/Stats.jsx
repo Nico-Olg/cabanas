@@ -9,7 +9,7 @@ const Stats = () => {
   const isInView = useInView(ref, { once: true, margin: "-50px" });
 
   const stats = [
-    { end: 5, suffix: '', label: t('stats.cabins') },
+    { end: 7, suffix: '', label: t('stats.cabins') },
     { end: 7, suffix: '', label: t('stats.varieties') },
     { end: 3, suffix: ' ha', label: t('stats.hectares') },
     { end: 100, suffix: '%', label: t('stats.nature') },

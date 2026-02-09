@@ -53,6 +53,38 @@ const GrillIcon = () => (
   </svg>
 );
 
+const FireplaceIcon = () => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M3 20h18M5 20V8l7-4 7 4v12"/>
+    <path d="M12 20v-6c-2 0-3 1.5-3 3s1 3 3 3zM12 14c2 0 3 1.5 3 3s-1 3-3 3"/>
+  </svg>
+);
+
+const HammockIcon = () => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M3 6l3 2M21 6l-3 2"/>
+    <path d="M6 8c0 6 4 8 6 8s6-2 6-8"/>
+    <path d="M2 22l4-14M22 22l-4-14"/>
+  </svg>
+);
+
+const SolarIcon = () => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <rect x="2" y="8" width="20" height="8" rx="1"/>
+    <path d="M6 8V6M10 8V6M14 8V6M18 8V6"/>
+    <circle cx="12" cy="3" r="1.5" fill="currentColor"/>
+    <path d="M12 16v4M8 20h8"/>
+  </svg>
+);
+
+const DeckIcon = () => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M2 18h20M4 18v-4h16v4"/>
+    <path d="M6 14V8M18 14V8M2 8h20"/>
+    <path d="M10 8V4M14 8V4"/>
+  </svg>
+);
+
 const Cabanas = () => {
   const { t } = useTranslation();
   const ref = useRef(null);
@@ -71,7 +103,7 @@ const Cabanas = () => {
       title: t('cabins.small_title'),
       description: t('cabins.small_desc'),
       imageClass: 'placeholder-small',
-      names: ['Cabernet Sauvignon', 'Marselan', 'Tannat', 'Viognier'],
+      names: ['Cabernet Sauvignon', 'Marselan', 'Tannat', 'Viognier', 'Malbec', 'Syrah'],
     },
     {
       type: 'large',
@@ -83,14 +115,18 @@ const Cabanas = () => {
   ];
 
   const amenities = [
-    { icon: <WifiIcon />, label: t('cabins.amenity_wifi') },
-    { icon: <AcIcon />, label: t('cabins.amenity_ac') },
-    { icon: <TvIcon />, label: t('cabins.amenity_tv') },
-    { icon: <ParkingIcon />, label: t('cabins.amenity_parking') },
     { icon: <KitchenIcon />, label: t('cabins.amenity_kitchen') },
+    { icon: <AcIcon />, label: t('cabins.amenity_ac') },
+    { icon: <FireplaceIcon />, label: t('cabins.amenity_fireplace') },
+    { icon: <TvIcon />, label: t('cabins.amenity_tv') },
+    { icon: <SolarIcon />, label: t('cabins.amenity_solar') },
     { icon: <BedIcon />, label: t('cabins.amenity_bedding') },
     { icon: <BathIcon />, label: t('cabins.amenity_bathroom') },
     { icon: <GrillIcon />, label: t('cabins.amenity_grill') },
+    { icon: <DeckIcon />, label: t('cabins.amenity_deck') },
+    { icon: <HammockIcon />, label: t('cabins.amenity_hammocks') },
+    { icon: <WifiIcon />, label: t('cabins.amenity_wifi') },
+    { icon: <ParkingIcon />, label: t('cabins.amenity_parking') },
   ];
 
   return (

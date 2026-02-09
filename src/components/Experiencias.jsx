@@ -78,6 +78,29 @@ const Experiencias = () => {
       title: t('experiences.exp6_title'),
       desc: t('experiences.exp6_desc'),
     },
+    {
+      icon: (
+        <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+          <path d="M24 4v8M8 24h8M32 24h8M12 12l6 6M36 12l-6 6" stroke="var(--accent)" strokeWidth="2" strokeLinecap="round"/>
+          <path d="M24 44c-8 0-16-6-16-16 0-6 4-12 8-16l8-8 8 8c4 4 8 10 8 16 0 10-8 16-16 16z" stroke="var(--primary)" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
+          <path d="M18 34c0-4 2.7-6 6-6s6 2 6 6" stroke="var(--primary)" strokeWidth="2" strokeLinecap="round"/>
+        </svg>
+      ),
+      title: t('experiences.exp7_title'),
+      desc: t('experiences.exp7_desc'),
+    },
+    {
+      icon: (
+        <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+          <path d="M24 44c11.046 0 20-8.954 20-20S35.046 4 24 4 4 12.954 4 24s8.954 20 20 20z" stroke="var(--primary)" strokeWidth="2.5"/>
+          <path d="M14 20c0-5.5 4.5-10 10-10s10 4.5 10 10" stroke="var(--accent)" strokeWidth="2" strokeLinecap="round"/>
+          <path d="M18 28h12M20 32h8M22 36h4" stroke="var(--primary)" strokeWidth="2" strokeLinecap="round"/>
+          <path d="M24 10v4M16 14l2 3M32 14l-2 3" stroke="var(--accent)" strokeWidth="1.5" strokeLinecap="round"/>
+        </svg>
+      ),
+      title: t('experiences.exp8_title'),
+      desc: t('experiences.exp8_desc'),
+    },
   ];
 
   return (
