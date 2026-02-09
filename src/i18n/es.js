@@ -42,7 +42,7 @@ const es = {
   "gallery.img3": "Pileta entre viñedos",
   "gallery.img4": "Patio Viñero",
   "gallery.img5": "Hileras de cepas",
-  "gallery.img6": "Naturaleza entrerriana",
+  "gallery.img6": "Pet Friendly",
   "gallery.view_gallery": "Ver galería",
 
   // ===== DIVIDER =====
@@ -69,6 +69,7 @@ const es = {
   "cabins.amenity_hammocks": "Hamacas paraguayas",
   "cabins.amenity_wifi": "WiFi en todo el complejo",
   "cabins.amenity_parking": "Estacionamiento y seguridad",
+  "cabins.amenity_pets": "Pet friendly — mascotas bienvenidas",
   "cabins.cta": "Consultar disponibilidad",
   "cabins.view_more": "Ver detalles",
 
@@ -166,7 +167,7 @@ const es = {
   "faq.q5": "¿Se pueden hacer degustaciones de vinos?",
   "faq.a5": "Por supuesto. Ofrecemos degustaciones de las variedades que cultivamos en nuestros viñedos. Es una experiencia informal e íntima, ideal para conocer los vinos entrerrianos.",
   "faq.q6": "¿Aceptan mascotas?",
-  "faq.a6": "Consultanos al momento de la reserva. Dependiendo de la disponibilidad y el tipo de mascota, podemos coordinar tu estadía para que toda la familia disfrute.",
+  "faq.a6": "¡Sí! Somos un complejo pet friendly. Tu mascota es parte de la familia y es bienvenida. Contamos con amplios espacios verdes, senderos y un entorno natural ideal para que disfruten juntos. Solo te pedimos que nos avises al momento de la reserva para preparar todo.",
 
   // ===== UBICACIÓN =====
   "location.eyebrow": "Ubicación",

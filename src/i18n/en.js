@@ -42,7 +42,7 @@ const en = {
   "gallery.img3": "Pool",
   "gallery.img4": "Wine Patio",
   "gallery.img5": "Vineyards",
-  "gallery.img6": "Natural Setting",
+  "gallery.img6": "Pet Friendly",
   "gallery.view_gallery": "View gallery",
 
   // ===== CABINS =====
@@ -66,6 +66,7 @@ const en = {
   "cabins.amenity_hammocks": "Paraguayan hammocks",
   "cabins.amenity_wifi": "WiFi throughout the complex",
   "cabins.amenity_parking": "Parking & security",
+  "cabins.amenity_pets": "Pet friendly — pets welcome",
   "cabins.cta": "Check availability",
   "cabins.view_more": "View details",
 
@@ -206,7 +207,7 @@ const en = {
   "faq.q5": "Can we do wine tastings?",
   "faq.a5": "Absolutely. We offer tastings of the varieties we grow in our vineyards. It's an informal, intimate experience — perfect for discovering Entre Ríos wines.",
   "faq.q6": "Are pets allowed?",
-  "faq.a6": "Please ask us when booking. Depending on availability and pet type, we can arrange your stay so the whole family can enjoy.",
+  "faq.a6": "Yes! We are a pet-friendly complex. Your pet is part of the family and is welcome here. We have spacious green areas, trails and an ideal natural setting for you to enjoy together. Just let us know when booking so we can prepare everything.",
 
   // ===== POSTALES BANNER =====
   "postales.eyebrow": "New project",

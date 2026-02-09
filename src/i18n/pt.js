@@ -42,7 +42,7 @@ const pt = {
   "gallery.img3": "Piscina",
   "gallery.img4": "Pátio do Vinhedo",
   "gallery.img5": "Vinhedos",
-  "gallery.img6": "Ambiente Natural",
+  "gallery.img6": "Pet Friendly",
   "gallery.view_gallery": "Ver galeria",
 
   // ===== CABANAS =====
@@ -66,6 +66,7 @@ const pt = {
   "cabins.amenity_hammocks": "Redes paraguaias",
   "cabins.amenity_wifi": "WiFi em todo o complexo",
   "cabins.amenity_parking": "Estacionamento e segurança",
+  "cabins.amenity_pets": "Pet friendly — animais de estimação bem-vindos",
   "cabins.cta": "Consultar disponibilidade",
   "cabins.view_more": "Ver detalhes",
 
@@ -206,7 +207,7 @@ const pt = {
   "faq.q5": "É possível fazer degustações de vinhos?",
   "faq.a5": "Com certeza. Oferecemos degustações das variedades que cultivamos em nossos vinhedos. É uma experiência informal e íntima, ideal para conhecer os vinhos de Entre Ríos.",
   "faq.q6": "Aceitam animais de estimação?",
-  "faq.a6": "Consulte-nos no momento da reserva. Dependendo da disponibilidade e do tipo de animal, podemos organizar sua estadia para que toda a família aproveite.",
+  "faq.a6": "Sim! Somos um complexo pet friendly. Seu animal de estimação faz parte da família e é bem-vindo. Contamos com amplos espaços verdes, trilhas e um entorno natural ideal para aproveitarem juntos. Apenas nos avise no momento da reserva para prepararmos tudo.",
 
   // ===== POSTALES BANNER =====
   "postales.eyebrow": "Novo projeto",

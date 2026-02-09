@@ -85,6 +85,13 @@ const DeckIcon = () => (
   </svg>
 );
 
+const PetIcon = () => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M10 5.172C10 3.782 8.884 2.5 7.5 2.5S5 3.782 5 5.172C5 6.56 6.116 7.5 7.5 7.5S10 6.56 10 5.172zM19 5.172C19 3.782 17.884 2.5 16.5 2.5S14 3.782 14 5.172C14 6.56 15.116 7.5 16.5 7.5S19 6.56 19 5.172zM6.5 12.172C6.5 10.782 5.384 9.5 4 9.5s-2.5 1.282-2.5 2.672C1.5 13.56 2.616 14.5 4 14.5s2.5-1.44 2.5-2.328zM22.5 12.172C22.5 10.782 21.384 9.5 20 9.5s-2.5 1.282-2.5 2.672c0 1.388 1.116 2.328 2.5 2.328s2.5-1.44 2.5-2.328z"/>
+    <path d="M12 22c-4 0-7-2-7-5 0-2 1.5-4 3.5-5 1-.5 2.2-.8 3.5-.8s2.5.3 3.5.8c2 1 3.5 3 3.5 5 0 3-3 5-7 5z"/>
+  </svg>
+);
+
 const Cabanas = () => {
   const { t } = useTranslation();
   const ref = useRef(null);
@@ -127,6 +134,7 @@ const Cabanas = () => {
     { icon: <HammockIcon />, label: t('cabins.amenity_hammocks') },
     { icon: <WifiIcon />, label: t('cabins.amenity_wifi') },
     { icon: <ParkingIcon />, label: t('cabins.amenity_parking') },
+    { icon: <PetIcon />, label: t('cabins.amenity_pets') },
   ];
 
   return (
