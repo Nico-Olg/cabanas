@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useTranslation } from '../i18n/LanguageContext';
 import LanguageToggle from './LanguageToggle';
 
+
 const Navbar = () => {
   const { t } = useTranslation();
   const [scrolled, setScrolled] = useState(false);
@@ -42,7 +43,10 @@ const Navbar = () => {
     <>
       <nav className={`navbar ${scrolled ? 'navbar--scrolled' : ''}`}>
         <div className="navbar__inner">
-          <a href="#" className="navbar__logo">Cabañas del Viñedo</a>
+          <a href="#" className="navbar__logo">
+            <img src="/images/Cabañas-del-vieñdo-blanco1.png" alt="Cabañas del Viñedo" className="navbar__logo-img" />
+            <span className="navbar__logo-text">Cabañas del Viñedo</span>
+          </a>
 
           <div className="navbar__links">
             {navLinks.map((link) => (

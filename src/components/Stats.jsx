@@ -11,7 +11,7 @@ const Stats = () => {
   const stats = [
     { end: 7, suffix: '', label: t('stats.cabins') },
     { end: 7, suffix: '', label: t('stats.varieties') },
-    { end: 3, suffix: ' ha', label: t('stats.hectares') },
+    { end: 11, suffix: ' ha', label: t('stats.hectares') },
     { end: 100, suffix: '%', label: t('stats.nature') },
   ];
 

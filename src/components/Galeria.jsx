@@ -12,12 +12,12 @@ const Galeria = () => {
 
   // galleryKey: if set, item is clickable and opens a gallery modal
   const images = [
-    { title: t('gallery.img1'), placeholder: "placeholder-1", galleryKey: null },
-    { title: t('gallery.img2'), placeholder: "placeholder-2", galleryKey: null },
-    { title: t('gallery.img3'), placeholder: "placeholder-3", galleryKey: "pileta" },
-    { title: t('gallery.img4'), placeholder: "placeholder-4", galleryKey: "patio" },
-    { title: t('gallery.img5'), placeholder: "placeholder-5", galleryKey: "vinedos" },
-    { title: t('gallery.img6'), placeholder: "placeholder-6", galleryKey: null },
+    { title: t('gallery.img1'), image: '/images/cabaña-exterior.jpg', galleryKey: null },
+    { title: t('gallery.img2'), image: '/images/interior-cabaña.jpg', galleryKey: null },
+    { title: t('gallery.img3'), image: '/images/pileta.jpg', galleryKey: "pileta" },
+    { title: t('gallery.img4'), image: '/images/patio-vinero.jpg', galleryKey: "patio" },
+    { title: t('gallery.img5'), image: '/images/vinedo-dron.jpg', galleryKey: "vinedos" },
+    { title: t('gallery.img6'), image: '/images/pet-friendly.jpg', galleryKey: null },
   ];
 
   const handleItemClick = (galleryKey) => {
@@ -54,7 +54,11 @@ const Galeria = () => {
                 tabIndex={image.galleryKey ? 0 : undefined}
                 onKeyDown={image.galleryKey ? (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); handleItemClick(image.galleryKey); } } : undefined}
               >
-                <div className={`gallery-image ${image.placeholder}`} />
+                {image.image ? (
+                  <div className="gallery-image" style={{ backgroundImage: `url(${image.image})` }} />
+                ) : (
+                  <div className={`gallery-image ${image.placeholder}`} />
+                )}
                 <div className="gallery-overlay">
                   <span className="gallery-title">{image.title}</span>
                   {image.galleryKey && (
