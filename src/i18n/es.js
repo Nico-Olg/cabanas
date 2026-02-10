@@ -10,11 +10,11 @@ const es = {
   "nav.menu_aria": "Menú de navegación",
 
   // ===== HERO =====
-  "hero.eyebrow": "Enoturismo · La Paz · Entre Ríos",
+  "hero.eyebrow": "Enoturismo Auténtico · La Paz · Entre Ríos",
   "hero.title_line1": "Donde el viñedo",
   "hero.title_line2": "se convierte en refugio",
-  "hero.subtitle": "Cabañas de madera premium entre viñedos propios. Despertá con el aroma de las cepas, cerrá el día con un atardecer que no existe en otro lugar.",
-  "hero.cta": "Descubrí el complejo",
+  "hero.subtitle": "Desconectá entre viñedos propios y naturaleza sin filtro. Despertá con el aroma de las cepas, cerrá el día con un vino que nace a metros de tu cabaña.",
+  "hero.cta": "Descubrí la experiencia",
   "hero.scroll": "Explorá",
 
   // ===== STATS =====
@@ -221,6 +221,15 @@ const es = {
   "contact.trust2": "Respuesta en 24hs",
   "contact.trust3": "Sin compromiso",
 
+  // ===== NEWSLETTER =====
+  "newsletter.title": "Ofertas exclusivas y novedades",
+  "newsletter.subtitle": "Recibí promociones de temporada, eventos especiales y noticias del viñedo directo en tu correo.",
+  "newsletter.placeholder": "tu@email.com",
+  "newsletter.button": "Suscribirme",
+  "newsletter.loading": "Enviando...",
+  "newsletter.success": "¡Gracias! Revisá tu correo para confirmar.",
+  "newsletter.error": "Por favor, ingresá un email válido",
+
   // ===== FOOTER =====
   "footer.tagline": "Enoturismo y cabañas de madera premium en Entre Ríos",
   "footer.contact_title": "Contacto",
@@ -228,7 +237,7 @@ const es = {
   "footer.instagram_aria": "Instagram",
   "footer.facebook_aria": "Facebook",
   "footer.copyright": "© 2026 Cabañas del Viñedo. Todos los derechos reservados.",
-  "footer.location": "La Paz, Entre Ríos, Argentina",
+  "footer.location": "Gregoria Pérez s/n y Los Zorzales · La Paz, Entre Ríos, Argentina · CP 3190",
 
   // ===== POSTALES BANNER =====
   "postales.eyebrow": "Nuevo proyecto",

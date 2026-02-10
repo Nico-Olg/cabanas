@@ -189,6 +189,15 @@ const pt = {
   "contact.trust2": "Resposta em 24h",
   "contact.trust3": "Sem compromisso",
 
+  // ===== NEWSLETTER =====
+  "newsletter.title": "Ofertas exclusivas e novidades",
+  "newsletter.subtitle": "Receba promoções sazonais, eventos especiais e notícias do vinhedo diretamente no seu e-mail.",
+  "newsletter.placeholder": "seu@email.com",
+  "newsletter.button": "Inscrever-se",
+  "newsletter.loading": "Enviando...",
+  "newsletter.success": "Obrigado! Verifique seu e-mail para confirmar.",
+  "newsletter.error": "Por favor, insira um e-mail válido",
+
   // ===== FOOTER =====
   "footer.tagline": "Seu refúgio entre vinhedos em Entre Ríos",
   "footer.contact_title": "Contato",
@@ -196,7 +205,7 @@ const pt = {
   "footer.instagram_aria": "Instagram",
   "footer.facebook_aria": "Facebook",
   "footer.copyright": "© 2026 Cabañas del Viñedo. Todos os direitos reservados.",
-  "footer.location": "La Paz, Entre Ríos, Argentina",
+  "footer.location": "Gregoria Pérez s/n e Los Zorzales · La Paz, Entre Ríos, Argentina · CP 3190",
 
   // ===== DIVIDER =====
   "divider.quote": "\"Existem lugares que se visitam e lugares que se sentem. Este é dos que se sentem.\"",

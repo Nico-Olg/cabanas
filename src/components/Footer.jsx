@@ -1,5 +1,6 @@
 import React from 'react';
 import { useTranslation } from '../i18n/LanguageContext';
+// import Newsletter from './Newsletter'; // TODO: Activar cuando tengamos backend
 
 const Footer = () => {
   const { t } = useTranslation();
@@ -7,22 +8,40 @@ const Footer = () => {
   return (
     <footer className="footer">
       <div className="container">
+        {/* Newsletter signup - TODO: Descomentar cuando tengamos backend */}
+        {/* <Newsletter /> */}
+
+           {/* Columna central: Logo */}
+          <div className="footer-logo-container">
+            <img
+              src="/images/Cabañas-del-vieñdo-blanco2.png"
+              alt="Cabañas del Viñedo"
+              className="footer-logo-img"
+            />
+          </div>
+
         <div className="footer-content">
-          <div className="footer-brand">
-            <h3 className="footer-logo">Cabañas del Viñedo</h3>
-            <p className="footer-tagline">{t('footer.tagline')}</p>
+          {/* Columna izquierda: Brand + Contacto */}
+          <div className="footer-left">
+            <div className="footer-brand">
+              <h3 className="footer-logo">Cabañas del Viñedo</h3>
+              <p className="footer-tagline">{t('footer.tagline')}</p>
+            </div>
+
+            <div className="footer-contact">
+              <h4 className="footer-title">{t('footer.contact_title')}</h4>
+              <a href="tel:+543434516846" className="footer-link">
+                (343) 4516846
+              </a>
+              <a href="https://wa.me/543434516846" className="footer-link" target="_blank" rel="noopener noreferrer">
+                WhatsApp
+              </a>
+            </div>
           </div>
 
-          <div className="footer-contact">
-            <h4 className="footer-title">{t('footer.contact_title')}</h4>
-            <a href="tel:+543434516846" className="footer-link">
-              (343) 4516846
-            </a>
-            <a href="https://wa.me/543434516846" className="footer-link" target="_blank" rel="noopener noreferrer">
-              WhatsApp
-            </a>
-          </div>
+       
 
+          {/* Columna derecha: Redes sociales */}
           <div className="footer-social">
             <h4 className="footer-title">{t('footer.follow_title')}</h4>
             <div className="social-links">

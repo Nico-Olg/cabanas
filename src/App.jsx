@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { LanguageProvider } from './i18n/LanguageContext';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
+import TrustBadges from './components/TrustBadges';
 import Stats from './components/Stats';
 import Concepto from './components/Concepto';
 import Galeria from './components/Galeria';
@@ -46,7 +47,10 @@ function App() {
         {/* 1. Hero impacto visual */}
         <Hero />
 
-        {/* 2. Stats - datos que anclan credibilidad */}
+        {/* 2. Trust Badges - credibilidad inmediata */}
+        <TrustBadges />
+
+        {/* 3. Stats - datos que anclan credibilidad */}
         <Stats />
 
         {/* 3. Concepto - storytelling del lugar */}
