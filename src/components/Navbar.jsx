@@ -44,8 +44,8 @@ const Navbar = () => {
       <nav className={`navbar ${scrolled ? 'navbar--scrolled' : ''}`}>
         <div className="navbar__inner">
           <a href="#" className="navbar__logo">
-            <img src="/images/Cabañas-del-vieñdo-blanco1.png" alt="Cabañas del Viñedo" className="navbar__logo-img" />
-            <span className="navbar__logo-text">Cabañas del Viñedo</span>
+            <img src="/images/Cabañas-del-vieñdo-blanco2.png" alt="Cabañas del Viñedo" className="navbar__logo-img" />
+            
           </a>
 
           <div className="navbar__links">

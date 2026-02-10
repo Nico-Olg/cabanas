@@ -129,7 +129,7 @@ body::before { display: none; }
   left: 0;
   right: 0;
   z-index: 1000;
-  padding: 1rem 0;
+  padding: 0.75rem 0;
   transition: background var(--transition-base), padding var(--transition-base), box-shadow var(--transition-base);
 }
 
@@ -137,7 +137,7 @@ body::before { display: none; }
   background: rgba(65, 20, 25, 0.65);
   backdrop-filter: blur(18px);
   -webkit-backdrop-filter: blur(18px);
-  padding: 0.6rem 0;
+  padding: 0.5rem 0;
   box-shadow: 0 2px 24px rgba(0, 0, 0, 0.18);
   border-bottom: 1px solid rgba(255, 255, 255, 0.10);
 }
@@ -164,22 +164,47 @@ body::before { display: none; }
 }
 
 .navbar__logo-img {
-  height: 50px;
+  height: 130px;
   width: auto;
   object-fit: contain;
-  filter: drop-shadow(0 1px 4px rgba(0, 0, 0, 0.25));
+  /* Float effect: logo se extiende fuera del navbar */
+  margin-top: -25px;
+  margin-bottom: -25px;
+  /* Prestige glow: efecto dorado sutil de viñedo premium */
+  filter:
+    drop-shadow(0 0 18px rgba(212, 184, 150, 0.35))
+    drop-shadow(0 3px 8px rgba(0, 0, 0, 0.4));
+  transition: all var(--transition-base);
+}
+
+.navbar--scrolled .navbar__logo-img {
+  height: 60px;
+  margin-top: 0;
+  margin-bottom: 0;
+  /* Glow más sutil cuando está scrolled */
+  filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.3));
 }
 
 .navbar__logo-text {
-  font-family: var(--font-display);
-  font-size: 1.3rem;
-  font-weight: 600;
-  color: var(--white);
-  white-space: nowrap;
-  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.25);
+  display: none;
 }
 
 .navbar__logo:hover { opacity: 0.85; }
+
+/* Logo más conservador en mobile */
+@media (max-width: 768px) {
+  .navbar__logo-img {
+    height: 90px;
+    margin-top: -10px;
+    margin-bottom: -10px;
+  }
+
+  .navbar--scrolled .navbar__logo-img {
+    height: 60px;
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+}
 
 .navbar__links {
   display: none;
