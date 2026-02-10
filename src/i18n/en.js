@@ -114,6 +114,27 @@ const en = {
   "vineyard.variety7_name": "Red Globe",
   "vineyard.variety7_type": "Table grape",
   "vineyard.aver_badge": "Members of AVER — Entre Ríos Winemakers Association",
+  "vineyard.view_detail": "Learn more",
+
+  // ===== VARIETY MODAL =====
+  "variety_modal.type_red": "Red grape",
+  "variety_modal.type_white": "White grape",
+  "variety_modal.type_table": "Table grape",
+  "variety_modal.nursery": "Genetics from San Nicolás nursery, Mendoza — Espalier training system",
+  "variety_modal.malbec_origin": "Origin: Cahors, France · Argentina's flagship since 1852",
+  "variety_modal.malbec_desc": "Argentina's flagship grape and the country's most widely planted variety. Small, compact clusters with intense blue-violet berries. In our Entre Ríos vineyard it develops a character of its own, with ripe fruit notes and good structure.",
+  "variety_modal.cabernet_origin": "Origin: Bordeaux, France · World's most planted variety",
+  "variety_modal.cabernet_desc": "One of the world's most recognized grape varieties. Small berries, thick skin, and deep color. It adapts very well to warm climates like Entre Ríos, producing wines with body, firm tannins, and dark fruit aromas.",
+  "variety_modal.tannat_origin": "Origin: Madiran, France · Uruguay's flagship grape",
+  "variety_modal.tannat_desc": "A grape of great intensity that has found its best expression in southwestern South America. Nearly black and impenetrable in color, with powerful tannins. In the province of Entre Ríos, Tannat is the signature variety.",
+  "variety_modal.viognier_origin": "Origin: Rhône Valley, France",
+  "variety_modal.viognier_desc": "The great aromatic white grape. Golden berries that produce wines with intense floral aromas and notes of peach and apricot. In some regions it's made as orange wine. A very noble variety that performs excellently in our terroir.",
+  "variety_modal.marselan_origin": "Origin: Marseillan, France · Cabernet × Grenache cross",
+  "variety_modal.marselan_desc": "A grape created in 1961 in France, resulting from crossing Cabernet Sauvignon and Grenache. It has gained recognition for high-quality wines with pronounced red fruit aromas, good intensity and complexity. Ideal for barrel aging.",
+  "variety_modal.flame_origin": "Origin: Fresno, California · Seedless table grape",
+  "variety_modal.flame_desc": "A seedless table grape variety, very large in size with red berries. Its production is intended for fresh consumption as table fruit and for raisin production.",
+  "variety_modal.redglobe_origin": "Origin: Davis, California",
+  "variety_modal.redglobe_desc": "Developed by Harold Olmo and A. Koyama. Large, spherical berries ranging from pink to violet-red. Skin with bloom, firm flesh, and neutral flavor. Ideal for fresh table consumption.",
 
   // ===== EXPERIENCES =====
   "experiences.eyebrow": "Experiences",

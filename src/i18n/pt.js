@@ -114,6 +114,27 @@ const pt = {
   "vineyard.variety7_name": "Red Globe",
   "vineyard.variety7_type": "Uva de mesa",
   "vineyard.aver_badge": "Membros da AVER — Associação Vitivinicultores de Entre Ríos",
+  "vineyard.view_detail": "Saiba mais",
+
+  // ===== VARIETY MODAL =====
+  "variety_modal.type_red": "Cepa tinta",
+  "variety_modal.type_white": "Cepa branca",
+  "variety_modal.type_table": "Uva de mesa",
+  "variety_modal.nursery": "Genética do viveiro San Nicolás, Mendoza — Sistema de espaldeiras",
+  "variety_modal.malbec_origin": "Origem: Cahors, França · Emblema argentino desde 1852",
+  "variety_modal.malbec_desc": "A cepa emblema da Argentina e a de maior superfície plantada no país. Cachos pequenos e compactos com bagas de cor azul-violácea intensa. Em nosso vinhedo entrerriano desenvolve um caráter próprio, com notas frutadas maduras e boa estrutura.",
+  "variety_modal.cabernet_origin": "Origem: Bordeaux, França · A mais plantada do mundo",
+  "variety_modal.cabernet_desc": "Uma das cepas mais reconhecidas mundialmente. Bagas pequenas, casca grossa e cor profunda. Adapta-se muito bem a climas quentes como o de Entre Ríos, produzindo vinhos encorpados, taninos firmes e aromas de frutas negras.",
+  "variety_modal.tannat_origin": "Origem: Madiran, França · Emblema do Uruguai",
+  "variety_modal.tannat_desc": "Cepa de grande intensidade que encontrou no sudoeste sul-americano sua melhor expressão. De cor quase negra e impenetrável, com taninos potentes. Na província de Entre Ríos, a variedade Tannat é insígnia.",
+  "variety_modal.viognier_origin": "Origem: Vale do Ródano, França",
+  "variety_modal.viognier_desc": "A grande cepa branca aromática. Bagas douradas que produzem vinhos com aromas florais intensos e notas de pêssego e damasco. Em algumas regiões é vinificada em laranja. Uma variedade muito nobre que se comporta excelentemente em nosso terroir.",
+  "variety_modal.marselan_origin": "Origem: Marseillan, França · Cruzamento Cabernet × Grenache",
+  "variety_modal.marselan_desc": "Cepa criada em 1961 na França, resultado do cruzamento entre Cabernet Sauvignon e Grenache. Ganhou reconhecimento por vinhos de grande qualidade com aroma pronunciado de frutas vermelhas, boa intensidade e complexidade. Ideal para envelhecimento em barrica.",
+  "variety_modal.flame_origin": "Origem: Fresno, Califórnia · Uva de mesa sem semente",
+  "variety_modal.flame_desc": "Variedade de uva de mesa sem semente, de tamanho muito grande com bagas vermelhas. Sua produção destina-se ao consumo fresco como fruta de mesa e à elaboração de passas.",
+  "variety_modal.redglobe_origin": "Origem: Davis, Califórnia",
+  "variety_modal.redglobe_desc": "Desenvolvida por Harold Olmo e A. Koyama. Bagas grandes, esféricas, de cor rosa a vermelho violáceo. Casca com pruína, polpa firme e sabor neutro. Ideal para consumo como fruta de mesa.",
 
   // ===== EXPERIÊNCIAS =====
   "experiences.eyebrow": "Experiências",
