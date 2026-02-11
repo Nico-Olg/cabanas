@@ -658,9 +658,10 @@ body::before { display: none; }
 }
 
 .hero-subtitle {
-  font-family: var(--font-serif);
-  font-size: clamp(1.125rem, 2.5vw, 1.5rem);
-  line-height: 1.0;
+  font-family: var(--font-sans);
+  font-size: clamp(1rem, 2vw, 1.25rem);
+  font-weight: 300;
+  line-height: 1.6;
   margin-bottom: 2.5rem;
   color: rgba(255, 255, 255, 0.95);
   max-width: 700px;
@@ -670,7 +671,7 @@ body::before { display: none; }
 
 .scroll-indicator {
   position: absolute;
-  bottom: 40px;
+  bottom: 24px;
   left: 50%;
   transform: translateX(-50%);
   display: flex;
