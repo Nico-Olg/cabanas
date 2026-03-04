@@ -4,9 +4,11 @@
   "description": "Landing page institucional para Cabañas del Viñedo - Complejo de cabañas y enoturismo en La Paz, Entre Ríos",
   "private": true,
   "dependencies": {
+    "firebase": "^12.10.0",
     "framer-motion": "^10.16.4",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^7.13.1"
   },
   "devDependencies": {
     "@vitejs/plugin-react": "^4.2.0",

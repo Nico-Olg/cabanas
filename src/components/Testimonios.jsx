@@ -1,29 +1,45 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import { motion, useInView } from 'framer-motion';
 import { useTranslation } from '../i18n/LanguageContext';
+import { collection, getDocs, orderBy, query } from 'firebase/firestore';
+import { db } from '../firebase';
 
 const Testimonios = () => {
-  const { t } = useTranslation();
+  const { t, language } = useTranslation();
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
-  const testimonials = [
-    {
-      text: t('testimonials.t1_text'),
-      author: t('testimonials.t1_author'),
-      origin: t('testimonials.t1_origin'),
-    },
-    {
-      text: t('testimonials.t2_text'),
-      author: t('testimonials.t2_author'),
-      origin: t('testimonials.t2_origin'),
-    },
-    {
-      text: t('testimonials.t3_text'),
-      author: t('testimonials.t3_author'),
-      origin: t('testimonials.t3_origin'),
-    },
+  // Fallback hardcodeado (i18n)
+  const fallbackTestimonials = [
+    { text: t('testimonials.t1_text'), author: t('testimonials.t1_author'), origin: t('testimonials.t1_origin'), stars: 5 },
+    { text: t('testimonials.t2_text'), author: t('testimonials.t2_author'), origin: t('testimonials.t2_origin'), stars: 5 },
+    { text: t('testimonials.t3_text'), author: t('testimonials.t3_author'), origin: t('testimonials.t3_origin'), stars: 5 },
   ];
+
+  const [testimonials, setTestimonials] = useState(fallbackTestimonials);
+
+  useEffect(() => {
+    const load = async () => {
+      try {
+        const q = query(collection(db, 'testimonios'), orderBy('order', 'asc'));
+        const snap = await getDocs(q).catch(() => getDocs(collection(db, 'testimonios')));
+        if (!snap.empty) {
+          setTestimonials(snap.docs.map((d) => {
+            const data = d.data();
+            return {
+              text: data[`text_${language}`] || data.text_es || data.text,
+              author: data.author,
+              origin: data.origin,
+              stars: data.stars || 5,
+            };
+          }));
+        }
+      } catch {
+        // Firebase no configurado: usa el fallback
+      }
+    };
+    load();
+  }, [language]);
 
   return (
     <section className="testimonials-section">
@@ -59,7 +75,7 @@ const Testimonios = () => {
                 <span>{item.origin}</span>
               </div>
               <div className="testimonial-stars">
-                {[...Array(5)].map((_, i) => (
+                {[...Array(item.stars || 5)].map((_, i) => (
                   <svg key={i} width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
                     <path d="M8 1.333l1.867 4.534 4.8.4-3.6 3.2 1.066 4.866L8 11.867l-4.133 2.466 1.066-4.866-3.6-3.2 4.8-.4L8 1.333z"/>
                   </svg>

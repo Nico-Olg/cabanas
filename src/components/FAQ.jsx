@@ -1,6 +1,8 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { motion, useInView, AnimatePresence } from 'framer-motion';
 import { useTranslation } from '../i18n/LanguageContext';
+import { collection, getDocs, orderBy, query } from 'firebase/firestore';
+import { db } from '../firebase';
 
 const FAQItem = ({ question, answer, isOpen, onClick }) => {
   return (
@@ -41,12 +43,12 @@ const FAQItem = ({ question, answer, isOpen, onClick }) => {
 };
 
 const FAQ = () => {
-  const { t } = useTranslation();
+  const { t, language } = useTranslation();
   const [openIndex, setOpenIndex] = useState(null);
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
-  const faqs = [
+  const fallbackFaqs = [
     { q: t('faq.q1'), a: t('faq.a1') },
     { q: t('faq.q2'), a: t('faq.a2') },
     { q: t('faq.q3'), a: t('faq.a3') },
@@ -54,6 +56,29 @@ const FAQ = () => {
     { q: t('faq.q5'), a: t('faq.a5') },
     { q: t('faq.q6'), a: t('faq.a6') },
   ];
+
+  const [faqs, setFaqs] = useState(fallbackFaqs);
+
+  useEffect(() => {
+    const load = async () => {
+      try {
+        const q = query(collection(db, 'faq'), orderBy('order', 'asc'));
+        const snap = await getDocs(q).catch(() => getDocs(collection(db, 'faq')));
+        if (!snap.empty) {
+          setFaqs(snap.docs.map((d) => {
+            const data = d.data();
+            return {
+              q: data[`question_${language}`] || data.question_es,
+              a: data[`answer_${language}`] || data.answer_es,
+            };
+          }));
+        }
+      } catch {
+        // Firebase no configurado: usa el fallback
+      }
+    };
+    load();
+  }, [language]);
 
   return (
     <section id="faq" className="faq-section">

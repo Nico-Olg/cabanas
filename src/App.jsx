@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { LanguageProvider } from './i18n/LanguageContext';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
@@ -17,9 +18,10 @@ import PostalesBanner from './components/PostalesBanner';
 import Contacto from './components/Contacto';
 import Footer from './components/Footer';
 import WhatsAppButton from './components/WhatsAppButton';
+import AdminApp from './admin/AdminApp';
 import './styles/CabanasDelVinedo.css';
 
-function App() {
+function LandingPage() {
   const [scrollProgress, setScrollProgress] = useState(0);
 
   useEffect(() => {
@@ -83,7 +85,7 @@ function App() {
         {/* 12. Contacto - conversion */}
         <Contacto />
 
-        {/* 13. Postales del Viñedo - cross-sell (después del contacto para no generar fuga) */}
+        {/* 13. Postales del Viñedo - cross-sell */}
         <PostalesBanner />
 
         {/* 14. Footer */}
@@ -93,6 +95,17 @@ function App() {
         <WhatsAppButton />
       </div>
     </LanguageProvider>
+  );
+}
+
+function App() {
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route path="/admin/*" element={<AdminApp />} />
+        <Route path="/*" element={<LandingPage />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
