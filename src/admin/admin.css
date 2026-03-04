@@ -585,6 +585,66 @@
   margin: 0;
 }
 
+/* --- Tabs --- */
+.admin-tabs {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-bottom: 1.25rem;
+}
+
+.admin-tab {
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  border: 1px solid #e4e4e7;
+  background: #fff;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #71717a;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.admin-tab:hover { border-color: #812b2f; color: #812b2f; }
+
+.admin-tab--active {
+  background: #812b2f;
+  color: #fff;
+  border-color: #812b2f;
+}
+
+/* --- Photo card footer --- */
+.admin-photo-name {
+  font-size: 0.75rem;
+  color: #71717a;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  flex: 1;
+  min-width: 0;
+}
+
+/* --- Empty state --- */
+.admin-empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 3rem;
+  color: #a1a1aa;
+  text-align: center;
+}
+
+.admin-empty-icon { font-size: 2.5rem; margin-bottom: 0.75rem; }
+.admin-empty-hint { font-size: 0.813rem; color: #d4d4d8; margin: 0; }
+
+/* --- Count --- */
+.admin-count {
+  font-size: 0.813rem;
+  color: #a1a1aa;
+  margin-top: 1rem;
+  text-align: right;
+}
+
 /* --- Desc --- */
 .admin-desc {
   font-size: 0.938rem;

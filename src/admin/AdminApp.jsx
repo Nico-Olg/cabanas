@@ -8,6 +8,7 @@ import TestimoniosAdmin from './sections/TestimoniosAdmin';
 import FaqAdmin from './sections/FaqAdmin';
 import StatsAdmin from './sections/StatsAdmin';
 import ContactoAdmin from './sections/ContactoAdmin';
+import ImagenesAdmin from './sections/ImagenesAdmin';
 import './admin.css';
 
 function ProtectedRoute({ user, children }) {
@@ -33,6 +34,7 @@ export default function AdminApp() {
         <Route path="faq" element={<ProtectedRoute user={user}><FaqAdmin /></ProtectedRoute>} />
         <Route path="stats" element={<ProtectedRoute user={user}><StatsAdmin /></ProtectedRoute>} />
         <Route path="contacto" element={<ProtectedRoute user={user}><ContactoAdmin /></ProtectedRoute>} />
+        <Route path="imagenes" element={<ProtectedRoute user={user}><ImagenesAdmin /></ProtectedRoute>} />
       </Routes>
     </div>
   );

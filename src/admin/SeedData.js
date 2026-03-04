@@ -1,7 +1,7 @@
 // Datos iniciales para sembrar en Firebase
 // Ejecutar desde el Dashboard la primera vez
 
-import { collection, doc, setDoc, addDoc, getDocs } from 'firebase/firestore';
+import { collection, doc, setDoc, addDoc, getDocs, query, where } from 'firebase/firestore';
 import { db } from '../firebase';
 
 export const SEED_TESTIMONIOS = [
@@ -110,8 +110,44 @@ export const SEED_CONTACTO = {
   email: '',
 };
 
+const SEED_IMAGENES = [
+  // Hero (3 imágenes para el slider principal)
+  { folder: 'hero',         name: 'vinedo-atardecer.png',           url: '/images/vinedo-atardecer.png' },
+  { folder: 'hero',         name: 'vinedo-dron.jpg',                url: '/images/vinedo-dron.jpg' },
+  { folder: 'hero',         name: 'naturaleza-sin-filtro.jpg',      url: '/images/naturaleza-sin-filtro.jpg' },
+  // Galería general
+  { folder: 'galeria',      name: 'cabaña-exterior.jpg',            url: '/images/cabaña-exterior.jpg' },
+  { folder: 'galeria',      name: 'interior-cabaña.jpg',            url: '/images/interior-cabaña.jpg' },
+  { folder: 'galeria',      name: 'pileta.jpg',                     url: '/images/pileta.jpg' },
+  { folder: 'galeria',      name: 'patio-vinero.jpg',               url: '/images/patio-vinero.jpg' },
+  { folder: 'galeria',      name: 'vinedo-dron.jpg',                url: '/images/vinedo-dron.jpg' },
+  { folder: 'galeria',      name: 'pet-friendly.jpg',               url: '/images/pet-friendly.jpg' },
+  // Experiencias
+  { folder: 'experiencias', name: 'exp-actividades.jpg',            url: '/images/experiencias/exp-actividades.jpg' },
+  { folder: 'experiencias', name: 'exp-atardecer.jpg',              url: '/images/experiencias/exp-atardecer.jpg' },
+  { folder: 'experiencias', name: 'exp-atardecer2.jpg',             url: '/images/experiencias/exp-atardecer2.jpg' },
+  { folder: 'experiencias', name: 'exp-avistaje.jpg',               url: '/images/experiencias/exp-avistaje.jpg' },
+  { folder: 'experiencias', name: 'exp-avistaje2.jpg',             url: '/images/experiencias/exp-avistaje2.jpg' },
+  { folder: 'experiencias', name: 'exp-descanso.jpg',               url: '/images/experiencias/exp-descanso.jpg' },
+  { folder: 'experiencias', name: 'exp-degustacion.jpg',            url: '/images/experiencias/exp-desgustacion.jpg' },
+  { folder: 'experiencias', name: 'exp-gastronomia.jpg',            url: '/images/experiencias/exp-gastronomia.jpg' },
+  { folder: 'experiencias', name: 'exp-pileta.jpg',                 url: '/images/experiencias/exp-pileta.jpg' },
+  { folder: 'experiencias', name: 'exp-rio.jpg',                    url: '/images/experiencias/exp-rio.jpg' },
+  // Varietales (varietyKey requerido para que Vinedos.jsx los muestre en la tarjeta correcta)
+  { folder: 'varietales', varietyKey: 'malbec',    name: 'variedad-malbec.jpg',             url: '/images/varietales/variedad-malbec.jpg' },
+  { folder: 'varietales', varietyKey: 'cabernet',  name: 'variedad-cabernet-sauvignon.jpg', url: '/images/varietales/variedad-cabernet-sauvignon.jpg' },
+  { folder: 'varietales', varietyKey: 'tannat',    name: 'variedad-tannat.jpg',             url: '/images/varietales/variedad-tannat.jpg' },
+  { folder: 'varietales', varietyKey: 'viognier',  name: 'variedad-viognier.jpg',           url: '/images/varietales/variedad-viognier.jpg' },
+  { folder: 'varietales', varietyKey: 'marselan',  name: 'Marselan.jpg',                   url: '/images/varietales/Marselan.jpg' },
+  { folder: 'varietales', varietyKey: 'flame',     name: 'Flame-Seedless.jpg',             url: '/images/varietales/Flame-Seedless.jpg' },
+  { folder: 'varietales', varietyKey: 'redglobe',  name: 'Red-Globe.jpeg',                 url: '/images/varietales/Red-Globe.jpeg' },
+  // Cabañas
+  { folder: 'cabanas',      name: 'cabaña-exterior.jpg',            url: '/images/cabaña-exterior.jpg' },
+  { folder: 'cabanas',      name: 'interior-cabaña.jpg',            url: '/images/interior-cabaña.jpg' },
+];
+
 export async function seedFirebase() {
-  const results = { testimonios: 0, faq: 0, stats: false, contacto: false };
+  const results = { testimonios: 0, faq: 0, stats: false, contacto: false, imagenes: 0 };
 
   // Testimonios
   const testSnap = await getDocs(collection(db, 'testimonios'));
@@ -138,6 +174,26 @@ export async function seedFirebase() {
   // Contacto
   await setDoc(doc(db, 'config', 'contacto'), SEED_CONTACTO);
   results.contacto = true;
+
+  // Imágenes (solo agrega las que no existen en cada carpeta)
+  const folders = [...new Set(SEED_IMAGENES.map((i) => i.folder))];
+  for (const folder of folders) {
+    const q = query(collection(db, 'imagenes'), where('folder', '==', folder));
+    const snap = await getDocs(q);
+    if (snap.empty) {
+      const folderImgs = SEED_IMAGENES.filter((i) => i.folder === folder);
+      for (let idx = 0; idx < folderImgs.length; idx++) {
+        const img = folderImgs[idx];
+        await addDoc(collection(db, 'imagenes'), {
+          url: img.url,
+          folder: img.folder,
+          name: img.name,
+          createdAt: idx,
+        });
+        results.imagenes++;
+      }
+    }
+  }
 
   return results;
 }

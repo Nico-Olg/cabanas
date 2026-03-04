@@ -1,11 +1,27 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import { motion, useInView } from 'framer-motion';
 import { useTranslation } from '../i18n/LanguageContext';
+import { collection, getDocs, query, where, orderBy } from 'firebase/firestore';
+import { db } from '../firebase';
 
 const Experiencias = () => {
   const { t } = useTranslation();
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
+  const [expImages, setExpImages] = useState([]);
+
+  useEffect(() => {
+    const load = async () => {
+      try {
+        const q = query(collection(db, 'imagenes'), where('folder', '==', 'experiencias'), orderBy('createdAt', 'asc'));
+        const snap = await getDocs(q);
+        if (!snap.empty) setExpImages(snap.docs.map((d) => d.data().url));
+      } catch {
+        // Firebase no configurado: usa imágenes locales
+      }
+    };
+    load();
+  }, []);
 
   const experiences = [
     {
@@ -88,7 +104,7 @@ const Experiencias = () => {
               <div
                 className="experience-card__bg"
                 style={{
-                  background: `url(${exp.image}) center/cover no-repeat, ${exp.fallback}`,
+                  background: `url(${expImages[index] || exp.image}) center/cover no-repeat, ${exp.fallback}`,
                 }}
               />
               <div className="experience-card__overlay" />

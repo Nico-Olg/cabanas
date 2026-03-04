@@ -1,7 +1,18 @@
-import React, { useRef, useState } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import { motion, useInView } from 'framer-motion';
 import { useTranslation } from '../i18n/LanguageContext';
 import GalleryModal from './GalleryModal';
+import { collection, getDocs, query, where, orderBy } from 'firebase/firestore';
+import { db } from '../firebase';
+
+const FALLBACK_IMAGES = [
+  { title: null, image: '/images/cabaña-exterior.jpg', galleryKey: null },
+  { title: null, image: '/images/interior-cabaña.jpg', galleryKey: null },
+  { title: null, image: '/images/pileta.jpg', galleryKey: 'pileta' },
+  { title: null, image: '/images/patio-vinero.jpg', galleryKey: 'patio' },
+  { title: null, image: '/images/vinedo-dron.jpg', galleryKey: 'vinedos' },
+  { title: null, image: '/images/pet-friendly.jpg', galleryKey: null },
+];
 
 const Galeria = () => {
   const { t } = useTranslation();
@@ -10,15 +21,30 @@ const Galeria = () => {
   const [modalOpen, setModalOpen] = useState(false);
   const [activeGallery, setActiveGallery] = useState(null);
 
-  // galleryKey: if set, item is clickable and opens a gallery modal
-  const images = [
-    { title: t('gallery.img1'), image: '/images/cabaña-exterior.jpg', galleryKey: null },
-    { title: t('gallery.img2'), image: '/images/interior-cabaña.jpg', galleryKey: null },
-    { title: t('gallery.img3'), image: '/images/pileta.jpg', galleryKey: "pileta" },
-    { title: t('gallery.img4'), image: '/images/patio-vinero.jpg', galleryKey: "patio" },
-    { title: t('gallery.img5'), image: '/images/vinedo-dron.jpg', galleryKey: "vinedos" },
-    { title: t('gallery.img6'), image: '/images/pet-friendly.jpg', galleryKey: null },
-  ];
+  const fallback = FALLBACK_IMAGES.map((img, i) => ({
+    ...img,
+    title: t(`gallery.img${i + 1}`),
+  }));
+  const [images, setImages] = useState(fallback);
+
+  useEffect(() => {
+    const load = async () => {
+      try {
+        const q = query(collection(db, 'imagenes'), where('folder', '==', 'galeria'), orderBy('createdAt', 'asc'));
+        const snap = await getDocs(q);
+        if (!snap.empty) {
+          setImages(snap.docs.map((d, i) => ({
+            image: d.data().url,
+            title: t(`gallery.img${i + 1}`) || d.data().name,
+            galleryKey: null,
+          })));
+        }
+      } catch {
+        // Firebase no configurado: usa fallback local
+      }
+    };
+    load();
+  }, []);
 
   const handleItemClick = (galleryKey) => {
     if (galleryKey) {

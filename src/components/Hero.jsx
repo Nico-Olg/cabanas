@@ -1,8 +1,10 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion';
 import { useTranslation } from '../i18n/LanguageContext';
+import { collection, getDocs, query, where, orderBy } from 'firebase/firestore';
+import { db } from '../firebase';
 
-const HERO_IMAGES = [
+const HERO_FALLBACK = [
   '/images/hero-1.jpg',
   '/images/hero-2.jpg',
   '/images/hero-3.jpg',
@@ -12,6 +14,22 @@ const Hero = () => {
   const { t } = useTranslation();
   const ref = useRef(null);
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [heroImages, setHeroImages] = useState(HERO_FALLBACK);
+
+  useEffect(() => {
+    const load = async () => {
+      try {
+        const q = query(collection(db, 'imagenes'), where('folder', '==', 'hero'), orderBy('createdAt', 'asc'));
+        const snap = await getDocs(q);
+        if (!snap.empty) {
+          setHeroImages(snap.docs.map((d) => d.data().url));
+        }
+      } catch {
+        // Firebase no configurado: usa fallback local
+      }
+    };
+    load();
+  }, []);
 
   const { scrollYProgress } = useScroll({
     target: ref,
@@ -23,10 +41,10 @@ const Hero = () => {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % HERO_IMAGES.length);
+      setCurrentSlide((prev) => (prev + 1) % heroImages.length);
     }, 5000);
     return () => clearInterval(interval);
-  }, []);
+  }, [heroImages.length]);
 
   return (
     <section ref={ref} className="hero">
@@ -40,7 +58,7 @@ const Hero = () => {
             exit={{ opacity: 0 }}
             transition={{ duration: 1.5, ease: "easeInOut" }}
             style={{
-              backgroundImage: `url(${HERO_IMAGES[currentSlide]})`,
+              backgroundImage: `url(${heroImages[currentSlide]})`,
               backgroundColor: '#812b2f'
             }}
           />

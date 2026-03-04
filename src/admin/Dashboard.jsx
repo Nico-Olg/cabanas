@@ -18,6 +18,12 @@ const sections = [
     desc: 'Gestionar las preguntas y respuestas del FAQ',
   },
   {
+    path: 'imagenes',
+    icon: '🖼️',
+    title: 'Imágenes',
+    desc: 'Subir y eliminar fotos: hero, galería, experiencias, varietales y cabañas',
+  },
+  {
     path: 'stats',
     icon: '📊',
     title: 'Estadísticas',
@@ -46,7 +52,7 @@ export default function Dashboard() {
     try {
       const res = await seedFirebase();
       setSeedDone(true);
-      alert(`✅ Datos inicializados:\n- Testimonios: ${res.testimonios} (solo si estaba vacío)\n- FAQ: ${res.faq} (solo si estaba vacío)\n- Stats: actualizado\n- Contacto: actualizado`);
+      alert(`✅ Datos inicializados:\n- Testimonios: ${res.testimonios} (solo si estaba vacío)\n- FAQ: ${res.faq} (solo si estaba vacío)\n- Imágenes: ${res.imagenes} (solo carpetas vacías)\n- Stats: actualizado\n- Contacto: actualizado`);
     } catch (err) {
       alert('Error al inicializar: ' + err.message);
     }
